@@ -166,7 +166,7 @@ public static class HardwareInfo
 		{
 			PingReply reply = myPing.Send("google.com", 500);
 			result = reply.RoundtripTime.ToString();
-			if(reply.RoundtripTime > 5) result += " [Bad internet ⚠]";
+			if(reply.RoundtripTime > 65) result += " [Bad internet ⚠]";
 		}
 		catch{
             result = "Error";
