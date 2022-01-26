@@ -1,5 +1,5 @@
 # TelePC-Control
-My first version of the bot for PC control (version : 0.2b)
+My first version of the bot for PC control (version : 0.3b)
 
 **Instalation**<br/>
 1. Insert your bot token in configuration.cs.<br/>

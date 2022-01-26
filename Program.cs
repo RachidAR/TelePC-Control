@@ -47,7 +47,6 @@ public static class Program
             MessageBox.Show($"Invalid chat id : {Configuration.AccesschatID}");
         }
 
-        //Console.WriteLine($"Start listening id : {me.Id}, username : @{me.Username}");
         Console.ReadLine();
 
         cts.Cancel();

@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Management;
+using System.Net.NetworkInformation;
 using System.Runtime.InteropServices;
 using System.Text;
 
@@ -157,5 +158,20 @@ public static class HardwareInfo
         }
         return null;
     }
+	public static string PingTest()
+	{
+		Ping myPing = new Ping();
+		string result = string.Empty;
+        try
+		{
+			PingReply reply = myPing.Send("google.com", 500);
+			result = reply.RoundtripTime.ToString();
+			if(reply.RoundtripTime > 5) result += " [Bad internet ⚠]";
+		}
+		catch{
+            result = "Error";
+        }
+		return result;
+	}
 
 }

@@ -20,7 +20,7 @@ public class BotHandlers
     public static InlineKeyboardMarkup MainKeyboard = new(
                 new[]
                 {
-                    InlineKeyboardButton.WithCallbackData("PC","PCControl"),
+                    InlineKeyboardButton.WithCallbackData("PC Control","PCControl"),
                 });
 
     public static InlineKeyboardMarkup PCKeyboard = new(
@@ -30,11 +30,11 @@ public class BotHandlers
                     {
                         InlineKeyboardButton.WithCallbackData("PowerControl","PowerControl"),
                         InlineKeyboardButton.WithCallbackData("TaskList", "TaskList"),
-                        InlineKeyboardButton.WithCallbackData("ScreenShot", "ScreenShot"),
+                        InlineKeyboardButton.WithCallbackData("Screenshot", "ScreenShot"),
                     },
                     new []
                     {
-                        InlineKeyboardButton.WithCallbackData("PC Info", "PCInfo"),
+                        InlineKeyboardButton.WithCallbackData("Info", "PCInfo"),
                         InlineKeyboardButton.WithCallbackData("Back", "BackToMain"),
                     },
                });
@@ -55,7 +55,7 @@ public class BotHandlers
                     },
                 });
 
-    public static string mainText = $"🖥 Your PC is Online\n" + $"OS : {HardwareInfo.GetOSInformation()}\n" + $"Name : {HardwareInfo.GetComputerName()}";
+    public static string mainText = $"🖥 Your PC is Online\n" + $"Name : {HardwareInfo.GetComputerName()}\n" + $"OS : {HardwareInfo.GetOSInformation()}\n";
 
     public static string minfoPC =
         $"⬇️ PC Configuration\n" +
@@ -190,6 +190,7 @@ public class BotHandlers
                     $"=============================\n" +
                     $"📌 Uptime : {HardwareInfo.GetSystemUpTimeInfo()}\n" +
                     $"📌 Active window : {HardwareInfo.GetActiveWindowTitle()}\n" +
+					$"📌 Ping : {HardwareInfo.PingTest()}\n" +
                     $"=============================\n",
                     replyMarkup: inlinkeyboard);
                     break;

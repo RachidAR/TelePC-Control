@@ -27,6 +27,7 @@ namespace PC_Control
 
         public static void Screenshot()
         {
+			var screenPath = string.Format(AppDomain.CurrentDomain.BaseDirectory) + @"screenshot\";
             Bitmap memoryImage;
             memoryImage = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
             Size s = new Size(memoryImage.Width, memoryImage.Height);
@@ -35,27 +36,26 @@ namespace PC_Control
 
             memoryGraphics.CopyFromScreen(0, 0, 0, 0, s);
 
-            filePath = string.Format(AppDomain.CurrentDomain.BaseDirectory) +
-                      @"screenshot\" + "ScreenShot" + ".jpg";
+            filePath = screenPath + "ScreenShot" + ".jpg";
 
-            if (!Directory.Exists(string.Format(AppDomain.CurrentDomain.BaseDirectory) + @"screenshot\"))
-                Directory.CreateDirectory(string.Format(AppDomain.CurrentDomain.BaseDirectory) + @"screenshot\");
+            if (!Directory.Exists(screenPath))
+                Directory.CreateDirectory(screenPath);
 
             memoryImage.Save(filePath);
         }
         public static void ListProcesses()
         {
+			var tempPath = string.Format(AppDomain.CurrentDomain.BaseDirectory) + @"temp\";
             Process[] processCollection = Process.GetProcesses();
             foreach (Process p in processCollection)
             {
                 listProcess += $"Process : {p.ProcessName} ID : {p.Id}\n";
             }
 
-            filePathListProc = string.Format(AppDomain.CurrentDomain.BaseDirectory) +
-                      @"temp\" + "listProc" + ".txt";
+            filePathListProc = tempPath + "listProc" + ".txt";
 
-            if (!Directory.Exists(string.Format(AppDomain.CurrentDomain.BaseDirectory) + @"temp\"))
-                Directory.CreateDirectory(string.Format(AppDomain.CurrentDomain.BaseDirectory) + @"temp\");
+            if (!Directory.Exists(tempPath))
+                Directory.CreateDirectory(tempPath);
 
             File.WriteAllTextAsync(filePathListProc, listProcess);
             listProcess = string.Empty;
